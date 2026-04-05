@@ -1,6 +1,6 @@
 # Sentiment Analysis Neural Network
 
-> A lightweight, browser-based machine learning application implementing sentiment analysis from scratch using vanilla JavaScript and logistic regression.
+> A lightweight, browser-based Neural Network application implementing sentiment analysis from scratch using vanilla JavaScript and logistic regression.
 
 **Status:** Educational | **Version:** 1.0.0 | **License:** MIT
 
@@ -22,7 +22,7 @@
 
 ## 🎯 Project Overview
 
-This project is a comprehensive, **educational machine learning web application** that implements binary sentiment analysis (positive/negative classification) entirely in the browser. It covers the complete ML pipeline:
+This project is a comprehensive, **educational Neural Network web application** that implements binary sentiment analysis (positive/negative classification) entirely in the browser. It covers the complete ML pipeline:
 
 - **Data Processing** → Vocabulary building and text encoding
 - **Model Training** → Single-layer perceptron with gradient descent
@@ -454,6 +454,10 @@ This project demonstrates:
 - The sigmoid function maintains numerical stability across the full input range
 - Weights are reinitialized whenever new training data is loaded
 
+## Notice
+- This is a proof of concept project
+- This may have bugs or can effect your device preformence if you use high epochs
+- This is done by a first year undergraduate so can be problematic on deferent devices
 ---
 
 ## 📄 License
