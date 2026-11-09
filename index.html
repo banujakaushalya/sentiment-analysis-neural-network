@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sentiment Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-6 font-sans text-gray-800">
+    <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg p-8 space-y-8">
+        <h1 class="text-3xl font-extrabold text-center text-slate-800 tracking-tight">AI Sentiment Analysis</h1>
+        <!-- Training Data Section -->
+        <div class="space-y-3">
+            <h2 class="text-lg font-semibold text-slate-700">Load Training Data</h2>
+            <div class="flex items-center space-x-3">
+                <input type="file" id="fileInput" accept=".json" title="Upload JSON data file"
+                    class="block w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition cursor-pointer">
+                <button onclick="extractData()"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg font-medium transition shadow-sm whitespace-nowrap">Extract</button>
+            </div>
+            <div class="text-sm hidden" id="tdError"></div>
+        </div>
+
+        <hr class="border-gray-200">
+
+        <!-- Train Model Section -->
+        <div class="space-y-3">
+            <h2 class="text-lg font-semibold text-slate-700">Train Model</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="epochsInput" class="block text-sm font-medium text-gray-600 mb-1">Epochs</label>
+                    <input type="number" id="epochsInput" placeholder="e.g. 100"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
+                </div>
+                <div>
+                    <label for="learningRateInput" class="block text-sm font-medium text-gray-600 mb-1">Learning
+                        Rate</label>
+                    <input type="number" id="learningRateInput" step="0.01" placeholder="e.g. 0.1"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
+                </div>
+            </div>
+            <button
+                onclick="trainModel(Number(document.getElementById('epochsInput').value), Number(document.getElementById('learningRateInput').value))"
+                class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold transition shadow-sm mt-3">Train
+                Neural Network</button>
+            <div class="text-sm hidden" id="trainError"></div>
+        </div>
+        <hr class="border-gray-200">
+        <!-- Analyze Text Section -->
+        <div class="space-y-3">
+            <h2 class="text-lg font-semibold text-slate-700">Test Sentiment</h2>
+            <div class="flex space-x-3">
+                <input type="text" id="textInput" placeholder="Enter text to analyze..."
+                    class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                <button onclick="testSentiment(document.getElementById('textInput').value)"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition shadow-sm">Analyze</button>
+            </div>
+            
+        </div>
+        <hr class="border-gray-200">
+        <!-- Result Section -->
+        <div
+            class="mt-4 p-5 bg-slate-50 rounded-xl border border-slate-200 min-h-[4.5rem] flex items-center justify-center">
+            <p id="result" class="text-center font-semibold text-slate-700 text-lg"></p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
